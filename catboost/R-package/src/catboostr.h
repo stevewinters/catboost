@@ -1,5 +1,6 @@
 #pragma once
 #include <Rinternals.h>
+#include <R.h>
 
 #if defined(_WIN32)
 #define EXPORT_FUNCTION __declspec(dllexport) SEXP

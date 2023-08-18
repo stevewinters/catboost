@@ -1,6 +1,6 @@
 /*
  *  R : A Computer Language for Statistical Data Analysis
- *  Copyright (C) 1998-2016    The R Core Team
+ *  Copyright (C) 1998-2019    The R Core Team
  *
  *  This header file is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public License as published by
@@ -78,6 +78,9 @@ void F77_NAME(qsort3)(double *v,            int *ii, int *jj);
 
 /* ../../main/util.c  and others : */
 const char *R_ExpandFileName(const char *);
+#ifdef Win32
+const char *R_ExpandFileNameUTF8(const char *);
+#endif
 void	setIVector(int*, int, int);
 void	setRVector(double*, int, double);
 Rboolean StringFalse(const char *);
@@ -92,6 +95,7 @@ double R_strtod(const char *c, char **end);
 
 char *R_tmpnam(const char *prefix, const char *tempdir);
 char *R_tmpnam2(const char *prefix, const char *tempdir, const char *fileext);
+void R_free_tmpnam(char *name);
 
 void R_CheckUserInterrupt(void);
 void R_CheckStack(void);
